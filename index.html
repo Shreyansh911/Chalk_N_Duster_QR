@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Redirect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    a {
+      color: #0078d7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="status">Redirecting...</h2>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    // 🔗 CHANGE THIS to your Play Store link when ready
+    const redirectUrl = "";
+
+    if (redirectUrl && redirectUrl.trim() !== "") {
+      // Redirect after 1 second delay
+      document.getElementById("status").innerText = "Opening app...";
+      document.getElementById("message").innerHTML = 
+        `If you are not redirected, <a href="${redirectUrl}">click here</a>.`;
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 1000);
+    } else {
+      // Fallback message if no link is set
+      document.getElementById("status").innerText = "App not available yet";
+      document.getElementById("message").innerText = 
+        "The app is still in development. Please try again later.";
+    }
+  </script>
+</body>
+</html>
